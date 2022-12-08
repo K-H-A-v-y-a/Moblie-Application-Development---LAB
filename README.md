@@ -1,1 +1,1 @@
-MAD
+Moblie application development lab
