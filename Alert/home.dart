@@ -1,4 +1,4 @@
-import 'package:expt10/services/local_notification_service.dart';
+import 'services/local_notification_service.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
