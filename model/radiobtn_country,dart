@@ -1,0 +1,94 @@
+
+import 'package:flutter/material.dart';
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  static const String _title = 'Flutter Code Sample';
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: _title,
+      home: Scaffold(
+        appBar: AppBar(title: const Text(_title)),
+        body: const Center(
+          child: MyStatefulWidget(),
+        ),
+      ),
+    );
+  }
+}
+
+enum SingingCharacter { India, USA, Germany, England }
+
+class MyStatefulWidget extends StatefulWidget {
+  const MyStatefulWidget({super.key});
+
+  @override
+  State<MyStatefulWidget> createState() => _MyStatefulWidgetState();
+}
+
+class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+  SingingCharacter? _character = SingingCharacter.India;
+  String str = "Select Your country";
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        ListTile(
+          title: const Text('India'),
+          leading: Radio<SingingCharacter>(
+            value: SingingCharacter.India,
+            groupValue: _character,
+            onChanged: (SingingCharacter? value) {
+              setState(() {
+                _character = value;
+                str = "India selected";
+              });
+            },
+          ),
+        ),
+        ListTile(
+          title: const Text('USA'),
+          leading: Radio<SingingCharacter>(
+            value: SingingCharacter.USA,
+            groupValue: _character,
+            onChanged: (SingingCharacter? value) {
+              setState(() {
+                _character = value;
+                str = "USA selected";
+              });
+            },
+          ),
+        ),
+        ListTile(
+          title: const Text('Germany'),
+          leading: Radio<SingingCharacter>(
+            value: SingingCharacter.Germany,
+            groupValue: _character,
+            onChanged: (SingingCharacter? value) {
+              setState(() {
+                _character = value;
+                str = "Germany selected";
+              });
+            },
+          ),
+        ),
+        ListTile(
+          title: const Text('England'),
+          leading: Radio<SingingCharacter>(
+            value: SingingCharacter.England,
+            groupValue: _character,
+            onChanged: (SingingCharacter? value) {
+              setState(() {
+                _character = value;
+                str = "England selected";
+              });
+            },
+          ),
+        ),
+        Text(str,style: TextStyle(fontSize: 21),),
+      ],
+    );
+  }
+}
